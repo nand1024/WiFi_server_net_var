@@ -1,0 +1,19 @@
+# /etc/systemd/system/my_server.service
+#замінити в необхідних місцях дійсні шляхи та назви
+[Unit]
+Description=My Python Server
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/my_server.py
+WorkingDirectory=/home/pi
+Restart=always
+RestartSec=3
+User=pi
+
+# опційно, щоб було видно логи через journalctl
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
