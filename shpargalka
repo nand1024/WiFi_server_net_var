@@ -1,0 +1,16 @@
+команди в консолі після створення service файлу systemd
+
+# перезавантажуємо список юнітів
+sudo systemctl daemon-reload
+
+# додаємо автозапуск
+sudo systemctl enable my_server.service
+
+# запускаємо вручну
+sudo systemctl start my_server.service
+
+# дивимось статус
+systemctl status my_server.service
+
+# логи
+journalctl -u my_server.service -f
